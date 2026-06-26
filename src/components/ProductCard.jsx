@@ -1,5 +1,6 @@
-// day 2/step 2
-function ProductCard({ name, price, rating, category, image }) {
+// day 4/step 2
+
+function ProductCard({ name, price, rating, category, image, onAddToCart }) {
   return (
     <div className="product-card">
       <div className="product-image-wrapper">
@@ -10,10 +11,14 @@ function ProductCard({ name, price, rating, category, image }) {
         <h3>{name}</h3>
         <p className="price">₹{price.toLocaleString('en-IN')}</p>
         <p className="rating">⭐ {rating} / 5</p>
+        <button className="add-to-cart-btn" onClick={onAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
 }
 
 export default ProductCard;
-// day 2/step 2
+
+// day 4/step 2

@@ -134,3 +134,37 @@ body {
   grid-column: 1 / -1;
 }
 /* day 3 step 3 */
+
+
+/* day 4 step 3 */
+
+.cart-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background: #103544;
+  padding: 6px 16px;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  border: none;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 0;
+  background: #febd69;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background: #f3a847;
+}
+
+/* day 4 step 3 */
