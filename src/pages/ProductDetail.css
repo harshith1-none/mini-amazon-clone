@@ -1,0 +1,75 @@
+/* day 5 step 5 */
+.detail-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: #e47911;
+  font-weight: bold;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.detail-card {
+  display: flex;
+  gap: 40px;
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.detail-card img {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-info h1 {
+  font-size: 24px;
+  color: #111;
+}
+
+.detail-price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #B12704;
+}
+
+.detail-rating {
+  font-size: 15px;
+  color: #555;
+}
+
+.detail-description {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.not-found {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+  color: #888;
+}
+/* day 5 step 5 */
