@@ -1,4 +1,4 @@
-//day 6 step 1
+//day 7 step 1
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -7,6 +7,7 @@ import ProductCard from './components/ProductCard';
 import SearchBar from './components/SearchBar';
 import ProductDetail from './pages/ProductDetail';
 import CategoryFilter from './components/CategoryFilter';
+import SortBar from './components/SortBar';
 import './App.css';
 
 const categories = ['All', ...new Set(products.map((p) => p.category))];
@@ -15,14 +16,21 @@ function App() {
   const [query, setQuery] = useState('');
   const [cartCount, setCartCount] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [sortOrder, setSortOrder] = useState('default');
 
-  const filtered = products
+  let filtered = products
     .filter((p) =>
       selectedCategory === 'All' ? true : p.category === selectedCategory
     )
     .filter((p) =>
       p.name.toLowerCase().includes(query.toLowerCase())
     );
+
+  if (sortOrder === 'low-high') {
+    filtered = [...filtered].sort((a, b) => a.price - b.price);
+  } else if (sortOrder === 'high-low') {
+    filtered = [...filtered].sort((a, b) => b.price - a.price);
+  }
 
   function handleAddToCart() {
     setCartCount(cartCount + 1);
@@ -42,6 +50,10 @@ function App() {
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
+          <div className="toolbar">
+            <p className="results-count">{filtered.length} results</p>
+            <SortBar sortOrder={sortOrder} setSortOrder={setSortOrder} />
+          </div>
           <div className="product-grid">
             {filtered.map((product) => (
               <ProductCard
@@ -68,4 +80,4 @@ function App() {
 
 export default App;
 
-//day 6 step 1
+//day 7 step 1

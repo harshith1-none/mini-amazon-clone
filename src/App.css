@@ -207,3 +207,51 @@ body {
 }
 
 /* day 6 step 3 */
+
+
+/* day 7 step 3 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.results-count {
+  font-size: 13px;
+  color: #555;
+}
+
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #555;
+}
+
+.sort-btn {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.sort-btn:hover {
+  border-color: #e47911;
+  color: #e47911;
+}
+
+.sort-btn.active {
+  background: #e47911;
+  border-color: #e47911;
+  color: white;
+  font-weight: bold;
+}
+/* day 7 step 3 */
