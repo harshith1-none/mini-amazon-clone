@@ -1,4 +1,4 @@
-//day 7 step 1
+//day 8 step 1
 
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -36,6 +36,10 @@ function App() {
     setCartCount(cartCount + 1);
   }
 
+  function handleRemoveFromCart() {
+    setCartCount((prev) => (prev > 0 ? prev - 1 : 0));
+  }
+
   return (
     <Routes>
       <Route path="/" element={
@@ -58,13 +62,9 @@ function App() {
             {filtered.map((product) => (
               <ProductCard
                 key={product.id}
-                id={product.id}
-                name={product.name}
-                price={product.price}
-                rating={product.rating}
-                category={product.category}
-                image={product.image}
+                product={product}
                 onAddToCart={handleAddToCart}
+                onRemoveFromCart={handleRemoveFromCart}
               />
             ))}
             {filtered.length === 0 && (
@@ -73,11 +73,16 @@ function App() {
           </div>
         </div>
       } />
-      <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="/product/:id" element={
+        <ProductDetail
+          onAddToCart={handleAddToCart}
+          onRemoveFromCart={handleRemoveFromCart}
+        />
+      } />
     </Routes>
   );
 }
 
 export default App;
 
-//day 7 step 1
+//day 8 step 1

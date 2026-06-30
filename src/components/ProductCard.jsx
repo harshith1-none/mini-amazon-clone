@@ -1,9 +1,10 @@
-// day 5/step 7
+// day 8/step 2
 
 import { useNavigate } from 'react-router-dom';
 
-function ProductCard({ id, name, price, rating, category, image, onAddToCart }) {
+function ProductCard({ product, onAddToCart, onRemoveFromCart }) {
   const navigate = useNavigate();
+  const { id, name, price, rating, category, image } = product;
 
   return (
     <div className="product-card" onClick={() => navigate(`/product/${id}`)}>
@@ -15,15 +16,27 @@ function ProductCard({ id, name, price, rating, category, image, onAddToCart }) 
         <h3>{name}</h3>
         <p className="price">₹{price.toLocaleString('en-IN')}</p>
         <p className="rating">⭐ {rating} / 5</p>
-        <button
-          className="add-to-cart-btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            onAddToCart();
-          }}
-        >
-          Add to Cart
-        </button>
+
+        <div className="cart-actions">
+          <button
+            className="add-to-cart-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              onAddToCart();
+            }}
+          >
+            Add to Cart
+          </button>
+          <button
+            className="remove-from-cart-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemoveFromCart();
+            }}
+          >
+            Remove
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -31,4 +44,4 @@ function ProductCard({ id, name, price, rating, category, image, onAddToCart }) 
 
 export default ProductCard;
 
-// day 5/step 7
+// day 8/step 2

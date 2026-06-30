@@ -1,10 +1,9 @@
-// day 5 step 4
-import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+// day 8 step 3
+import { useParams, useNavigate } from 'react-router-dom';
 import products from '../data/products';
 import './ProductDetail.css';
 
-function ProductDetail() {
+function ProductDetail({ onAddToCart, onRemoveFromCart }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -27,7 +26,15 @@ function ProductDetail() {
           <p className="detail-price">₹{product.price.toLocaleString('en-IN')}</p>
           <p className="detail-rating">⭐ {product.rating} / 5</p>
           <p className="detail-description">{product.description}</p>
-          <button className="add-to-cart-btn">Add to Cart</button>
+
+          <div className="cart-actions">
+            <button className="add-to-cart-btn" onClick={onAddToCart}>
+              Add to Cart
+            </button>
+            <button className="remove-from-cart-btn" onClick={onRemoveFromCart}>
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -35,4 +42,4 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
-//day 5 step 4
+//day 8 step 3
